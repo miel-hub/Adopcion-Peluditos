@@ -1,0 +1,477 @@
+/* Variables de colores suaves y modernos */
+/* Variables de colores elegantes (Tonos Café y Marrón) */
+:root {
+    --primary-color: #8D6E63; /* Café suave y elegante */
+    --primary-hover: #5D4037; /* Café oscuro (Espresso) al pasar el mouse */
+    --secondary-color: #D7CCC8; /* Color crema/latte para detalles suaves */
+    --background: #121212; /* Base oscura */
+    --text-dark: #3E2723; /* Marrón muy oscuro para los textos dentro de las tarjetas */
+    --text-light: #795548; /* Marrón medio */
+    --white: #FFFAF7; /* Un blanco cálido (hueso) para que las tarjetas no lastimen la vista */
+    --shadow: 0 15px 35px rgba(0,0,0,0.6); /* Sombras más intensas para que las tarjetas floten sobre el fondo oscuro */
+    --border-radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif; /* Letra redondeada y moderna */
+}
+
+/* Letra Poppins para darle fuerza y elegancia a los títulos */
+h1, h2, h3, h4, .logo {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    color: var(--text-dark);
+    background-color: #121212; /* Color de seguridad por si el internet es lento */
+    
+    /* Filtro oscuro más suave (70%) con un ligerísimo tono café para que la imagen SÍ se vea */
+    background-image: linear-gradient(rgba(20, 15, 12, 0.75), rgba(20, 15, 12, 0.75)), 
+                      url('../assets/paquete completo.png');
+                      
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+/* Navegación Profesional */
+nav {
+    background-color: #251612; /* Café Espresso muy oscuro y elegante */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7); /* Sombra dramática */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #4a332a;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #F5EAE6; /* Color crema luminoso */
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.cart-btn {
+    background-color: #8D6E63;
+    color: #FFF;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 1px solid #D7CCC8;
+}
+
+.cart-btn:hover {
+    background-color: #D7CCC8;
+    color: #251612;
+    transform: translateY(-2px);
+}
+
+#cart-count {
+    background-color: #251612;
+    color: #D7CCC8;
+    padding: 2px 8px;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+/* Control de Secciones (SPA) */
+.hidden-section {
+    display: none !important;
+}
+
+.active-section {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+}
+
+.btn-secondary {
+    background: none;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 20px 40px;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.cta-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.cta-btn {
+    font-size: 1.5rem;
+    padding: 20px 50px;
+}
+
+/* Portada y Tarjetas de Padres */
+/* Portada y Tarjetas de Padres */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--white); /* Letras claras para contrastar con el fondo oscuro */
+}
+.parents-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.parent-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    width: 350px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.parent-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top; /* <--- Agregamos esto */
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+/* Catálogo de Cachorros */
+
+/* =========================================
+   TÍTULO PRINCIPAL DE LA SECCIÓN
+   ========================================= */
+.section-title {
+    text-align: center;
+    margin: 50px 0 40px;
+    color: #F5EAE6; /* Color crema ultra brillante para que resalte del fondo negro */
+    font-size: 2.8rem; /* Más grande e imponente */
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 3px 4px 8px rgba(0,0,0,0.9); /* Sombra dramática para separarlo del fondo */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px; /* Un poquito más de espacio entre tarjetas */
+    padding: 20px 40px 60px;
+}
+
+/* =========================================
+   EL EFECTO NUBE PARA LAS TARJETAS
+   ========================================= */
+.puppy-card {
+    background-color: #FAF5F0; /* Crema muy suave */
+    border-radius: 25px; 
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transition: all 0.4s ease;
+    text-align: center;
+    padding-bottom: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.9); /* Borde blanco brillante */
+}
+
+.puppy-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+}
+
+.puppy-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+    border-bottom: 4px solid #3E2723; /* Línea gruesa color café extra oscuro */
+}
+
+/* Letras MUY FUERTES para el nombre del cachorro */
+.puppy-card h3 {
+    color: #3E2723; /* Café súper oscuro (casi negro) para máximo contraste */
+    margin: 20px 0 8px;
+    font-size: 1.6rem;
+    font-weight: 900; /* El peso máximo de la fuente */
+    letter-spacing: 1px;
+}
+
+/* Cursiva y elegante para la descripción (sexo, color, etc.) */
+.puppy-card p {
+    color: #8D6E63; /* Un café más suave y grisáceo */
+    margin-bottom: 20px;
+    padding: 0 20px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    font-style: italic; /* <--- ¡Aquí está el efecto cursiva! */
+    line-height: 1.5;
+}
+/* Letras oscuras y legibles dentro de la nube */
+.puppy-card h3 {
+    color: #3E2723;
+    margin: 20px 0 10px;
+    font-size: 1.4rem;
+    padding: 0 10px;
+}
+
+.puppy-card p {
+    color: #6D4C41;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Detalles del Cachorro */
+.detail-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; /* <--- ¡NUEVA LÍNEA! Esto permite que el video pase a la fila de abajo */
+    align-items: flex-start;
+    gap: 40px;
+    position: relative;
+}
+
+.detail-img-section {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-img-container img {
+    width: 100%;
+    height: 550px; 
+    object-fit: contain;
+    object-position: center;/* <--- ¡LA MAGIA ESTÁ AQUÍ! Cambiamos 'center' por 'top' */
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.gallery-thumbnails .thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.gallery-thumbnails .thumbnail:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.video-container {
+    margin-top: 20px;
+    background: #fdfbfb;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--secondary-color);
+}
+
+.video-title {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.detail-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-info h2 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+.detail-info p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.adopt-btn {
+    margin-top: 30px;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 15px;
+    border-radius: 30px;
+}
+
+/* Lista y Formulario */
+.cart-items-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow);
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.remove-btn {
+    margin-left: auto;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.input-group input, .input-group select, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.terms-scroll {
+    height: 150px;
+    overflow-y: scroll;
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 15px 0;
+    font-size: 0.9rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 30px;
+    font-size: 1.2rem;
+}
+
+/* Responsive: Cuando la pantalla es pequeña (Celulares) */
+@media (max-width: 768px) {
+    .parents-container { flex-direction: column; align-items: center; }
+    
+    .detail-container {
+        flex-direction: column;
+        padding: 25px;
+        gap: 20px;
+    }
+    
+    .main-img-container img {
+        height: 350px; /* En celulares la foto principal no debe ser tan alta */
+    }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuentes de Google: Poppins y Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <title>Adopción Responsable de Cachorros</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Peluditos en Busca de Hogar</div>
+        <div class="cart-btn" onclick="showSection('cart-section')">
+            Mi Lista de Adopción <span id="cart-count">0</span>
+        </div>
+    </nav>
+
+    <section id="home-section" class="active-section">
+        <header class="hero">
+            <h1>Conoce a nuestra familia perruna</h1>
+            <p>Buscamos hogares llenos de amor y responsabilidad.</p>
+        </header>
+
+        <div class="parents-container">
+            <div class="parent-card">
+                <img src="assets/venus.png" alt="Mamá ">
+                <h2>LA MAMÁ: VENUS RAFAELA</h2>
+                <p><strong>Edad:</strong> 1 Año y 9 meses | <strong>Peso:</strong> 8.500 kg | <strong>Tamaño:</strong> Pequeña</p>
+                <p><strong>Personalidad:</strong> Protectora, cariñosa y tranquila. Le encanta dormir al sol, en el piso en el sofa  en todo lado, le gusta jugar con sus juguetes.</p>
+                <p><strong>Salud:</strong> Vacunada, desparasitada y en perfecto estado.</p>
+            </div>
+            <div class="parent-card">
+                <img src="assets/rafael.png" alt="Papá ">
+                <h2>EL PAPÁ: RAFAEL ANTONIO</h2>
+                <p><strong>Edad:</strong> 1 Año y 11 meses | <strong>Peso:</strong> 10 kg | <strong>Tamaño:</strong> Mediano</p>
+                <p><strong>Personalidad:</strong> Juguetón, enérgico,nacio con cola pequeña, protector y muy inteligente.</p>
+                <p><strong>Salud:</strong> Vacunado y desparasitado.</p>
+            </div>
+        </div>
+
+        <div class="cta-container">
+            <button class="btn-primary cta-btn" onclick="showSection('catalog-section')">Ver hijos en adopción</button>
+        </div>
+    </section>
+
+    <section id="catalog-section" class="hidden-section">
+        <h2 class="section-title">Cachorros en Adopción</h2>
+        <button class="btn-secondary back-btn" onclick="showSection('home-section')">← Volver al inicio</button>
+        <div class="grid-container" id="puppies-grid">
+            </div>
+    </section>
+
+    <section id="detail-section" class="hidden-section">
+        <button class="btn-secondary back-btn" onclick="showSection('catalog-section')">← Volver al catálogo</button>
+        <div class="detail-container" id="puppy-detail-content">
+            </div>
+    </section>
+
+    <section id="cart-section" class="hidden-section">
+        <h2 class="section-title">Tu Lista de Adopción</h2>
+        <button class="btn-secondary back-btn" onclick="showSection('catalog-section')">← Seguir viendo</button>
+        
+        <div id="cart-items" class="cart-items-container">
+            </div>
+
+        <div class="form-container" id="adoption-form-container" style="display: none;">
+            <h3>Formulario de Adopción Responsable</h3>
+            <form id="adoption-form">
+                <div class="input-group">
+                    <label>Nombre Completo:</label>
+                    <input type="text" id="user_name" required>
+                </div>
+                <div class="input-group">
+                    <label>Correo Electrónico:</label>
+                    <input type="email" id="user_email" required>
+                </div>
+                <div class="input-group">
+                    <label>Teléfono:</label>
+                    <input type="tel" id="user_phone" required>
+                </div>
+                <div class="input-group">
+                    <label>Ciudad y País:</label>
+                    <input type="text" id="user_location" required>
+                </div>
+                <div class="input-group">
+                    <label>Tipo de vivienda:</label>
+                    <select id="home_type" required>
+                        <option value="">Seleccione...</option>
+                        <option value="Casa Independiente: Vivienda que no comparte paredes con otras y tiene acceso directo desde la calle.">Casa Independiente: Vivienda que no comparte paredes con otras y tiene acceso directo desde la calle.</option>
+                        <option value="Departamento: Unidad de vivienda que forma parte de un edificio y comparte algunas áreas comunes con otros residentes.">Departamento: Unidad de vivienda que forma parte de un edificio y comparte algunas áreas comunes con otros residentes.</option>
+                        <option value="Vivienda en Vecindad: Espacio que puede compartir paredes y servicios con otras viviendas, generalmente en un mismo terreno">Vivienda en Vecindad: Espacio que puede compartir paredes y servicios con otras viviendas, generalmente en un mismo terreno</option>
+                        <option value="Vivienda Temporal: Como casas de huéspedes o albergues, donde la estancia es por un período limitado.">Vivienda Temporal: Como casas de huéspedes o albergues, donde la estancia es por un período limitado.</option>
+                    </select>
+                </div>
+                <!-- Pregunta sobre niños y mascotas -->
+                <div class="input-group">
+                    <label>¿Hay niños u otras mascotas? (Explica detalladamente)</label>
+                    <textarea id="family_details" rows="3" minlength="30" maxlength="300" placeholder="Escribe al menos 30 letras explicando quiénes viven en casa..." required></textarea>
+                </div>
+
+                <!-- Pregunta sobre el motivo -->
+                <div class="input-group">
+                    <label>Motivo por el que desea adoptar y tiempo que pasará solo el cachorro:</label>
+                    <textarea id="adoption_motive" rows="4" minlength="50" maxlength="600" placeholder="Por favor, sé muy detallado/a. Escribe al menos 50 letras contándonos tus motivos..." required></textarea>
+                </div>
+                
+                <div class="terms-container">
+                    <h4>Términos y Condiciones de Adopción</h4>
+                    <div class="terms-scroll">
+                        <p>Al enviar esta solicitud, el adoptante se compromete ante Melissa (responsable de la adopción) a cumplir con las siguientes cláusulas:</p>
+                        <ul>
+                            <li><strong>Buen trato:</strong> Garantizar al animal un entorno seguro, digno y afectuoso, basado en el respeto, el cuidado responsable y su bienestar integral. Queda prohibida cualquier forma de maltrato, negligencia, abandono o conducta que pueda afectar su salud física o emocional.</li>
+                            <li><strong>Alimentación y Salud:</strong> Proporcionar una alimentación adecuada y de calidad, acceso permanente a agua fresca y limpia, así como atención veterinaria preventiva y correctiva cuando sea necesaria, incluyendo vacunación, desparasitación, controles periódicos y atención ante enfermedades o emergencias..</li>
+                            <li><strong>Esterilización:</strong> Comprometerse a esterilizar o castrar al animal en la edad y condiciones recomendadas por un médico veterinario, contribuyendo a la tenencia responsable y evitando la reproducción no planificada.</li>
+                            <li><strong><strong>No abandono ni cesión:</strong> El animal no podrá ser vendido, regalado, cedido ni abandonado. En caso de que el adoptante no pueda seguir haciéndose cargo de él, deberá informar a la responsable inicial para coordinar su devolución. El incumplimiento de este compromiso podrá dar lugar a las acciones correspondientes conforme a la normativa vigente de protección y bienestar animal.</li>
+                            <li><strong>Seguimiento:</strong> El adoptante acepta enviar fotografías periódicas del cachorro y permitir el seguimiento de su estado de salud, bienestar y condiciones de vida durante toda la vida del animal, hasta el momento de su fallecimiento.</li>
+                        </ul>
+                    </div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="accept_terms" required>
+                        He leído y acepto los compromisos de adopción responsable.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary submit-btn">Enviar Solicitud de Adopción</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
