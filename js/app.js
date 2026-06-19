@@ -17,7 +17,7 @@ const puppies = [
             "assets/1rass.png",
             "assets/1rasss.png"
         ],
-        video: "https://youtube.com/shorts/qvFr91kjLSc"
+        video: "https://www.youtube.com/embed/qvFr91kjLSc"
     },
     {
         id: 2,
@@ -36,7 +36,7 @@ const puppies = [
             "assets/2dass.png",
             "assets/2dasss.png"
         ],
-        video: "https://youtube.com/shorts/ODGao8nYMi0"
+        video: "https://www.youtube.com/embed/ODGao8nYMi0"
     },
     {
         id: 3,
@@ -57,7 +57,7 @@ const puppies = [
             "assets/3rasssss.png",
             "assets/3rassssss.png"
         ],
-        video: "https://youtube.com/shorts/af0ucnYlYdE"
+        video: "https://www.youtube.com/embed/af0ucnYlYdE"
     },
     {
         id: 4,
@@ -77,7 +77,7 @@ const puppies = [
             "assets/4tassssss.png",
             "assets/4tassss.png"
         ],
-        video: "https://youtube.com/shorts/jtKuiKwgLoM"
+        video: "https://www.youtube.com/embed/jtKuiKwgLoM"
     },
     {
         id: 5,
@@ -96,7 +96,7 @@ const puppies = [
             "assets/5tass.png",
             "assets/image copy 2.png"
         ],
-        video: "https://www.youtube.com/embed/Zg4jK_bqloo?si=IOOIgVuftvIrrL1i"
+        video: "https://www.youtube.com/embed/Zg4jK_bqloo"
     }
 ];
 
