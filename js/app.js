@@ -17,7 +17,7 @@ const puppies = [
             "assets/1rass.png",
             "assets/1rasss.png"
         ],
-        video: "assets/1ER VIDEO .mp4"
+        video: "https://youtube.com/shorts/qvFr91kjLSc"
     },
     {
         id: 2,
@@ -36,7 +36,7 @@ const puppies = [
             "assets/2dass.png",
             "assets/2dasss.png"
         ],
-        video: "assets/2DOVIDEO.mp4"
+        video: "https://youtube.com/shorts/ODGao8nYMi0"
     },
     {
         id: 3,
@@ -57,7 +57,7 @@ const puppies = [
             "assets/3rasssss.png",
             "assets/3rassssss.png"
         ],
-        video: "assets/3ERVIDEO.mp4"
+        video: "https://youtube.com/shorts/af0ucnYlYdE"
     },
     {
         id: 4,
@@ -77,7 +77,7 @@ const puppies = [
             "assets/4tassssss.png",
             "assets/4tassss.png"
         ],
-        video: "assets/4TA VIDEO2.mp4"
+        video: "https://youtube.com/shorts/jtKuiKwgLoM"
     },
     {
         id: 5,
@@ -96,7 +96,7 @@ const puppies = [
             "assets/5tass.png",
             "assets/image copy 2.png"
         ],
-        video: "assets/5TAVIDEO.mp4"
+        video: "https://youtube.com/shorts/Zg4jK_bqloo"
     }
 ];
 
@@ -171,13 +171,13 @@ function viewDetails(id) {
 
     // Generar el código HTML para el video local MP4
 // Generar el código HTML para el video local MP4 (Estilo Cine)
-    let videoHTML = '';
+let videoHTML = '';
     if (puppy.video) {
         videoHTML = `
             <div class="video-container" style="width: 100%; margin-top: 20px; background: transparent; border: none; padding: 0;">
                 <h3 class="video-title" style="margin-bottom: 15px;">Mira a ${puppy.name} en acción 🎥</h3>
-                <div style="width: 100%; background-color: #000; border-radius: 15px; display: flex; justify-content: center; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.2);">
-                    <video src="${puppy.video}" controls style="width: 100%; max-height: 600px; object-fit: contain; outline: none;"></video>
+                <div style="width: 100%; background-color: #000; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.2); position: relative; padding-bottom: 56.25%; height: 0;">
+                    <iframe src="${puppy.video}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         `;
