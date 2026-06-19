@@ -96,7 +96,7 @@ const puppies = [
             "assets/5tass.png",
             "assets/image copy 2.png"
         ],
-        video: "https://youtube.com/shorts/Zg4jK_bqloo"
+        video: "https://www.youtube.com/embed/Zg4jK_bqloo?si=IOOIgVuftvIrrL1i"
     }
 ];
 
