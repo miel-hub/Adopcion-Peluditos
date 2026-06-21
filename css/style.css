@@ -470,7 +470,7 @@ nav {
         padding: 25px;
         gap: 20px;
     }
-    /* Etiqueta de Adoptado */
+/* Etiqueta de Adoptado */
 .adopted-badge {
     background-color: #5D4037; /* Café oscuro */
     color: #F5EAE6; /* Crema brillante */
@@ -483,9 +483,4 @@ nav {
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-    
-    .main-img-container img {
-        height: 350px; /* En celulares la foto principal no debe ser tan alta */
-    }
 }
