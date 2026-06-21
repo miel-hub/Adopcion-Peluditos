@@ -170,9 +170,8 @@ function viewDetails(id) {
         galleryHTML += '</div>';
     }
 
-    // Generar el código HTML para el video local MP4
-// Generar el código HTML para el video local MP4 (Estilo Cine)
-let videoHTML = '';
+    // Generar el código HTML para el video de YouTube
+    let videoHTML = '';
     if (puppy.video) {
         videoHTML = `
             <div class="video-container" style="width: 100%; margin-top: 20px; background: transparent; border: none; padding: 0;">
@@ -184,7 +183,12 @@ let videoHTML = '';
         `;
     }
 
-    // Inyectar todo en la pantalla (Video movido al final)
+    // Lógica para cambiar el botón si ya está adoptado
+    let actionButtonHTML = puppy.adopted 
+        ? `<button class="btn-primary adopt-btn" style="background-color: #D7CCC8; color: #5D4037; cursor: not-allowed; border: 2px solid #8D6E63;" disabled>🏠 Este peludito ya tiene familia</button>`
+        : `<button class="btn-primary adopt-btn" onclick="addToAdoption(${puppy.id})">${randomText}</button>`;
+
+    // Inyectar todo en la pantalla
     detailContainer.innerHTML = `
         <div class="detail-img-section" style="flex: 1; min-width: 300px;">
             <div class="main-img-container" style="position: relative; overflow: hidden; border-radius: 20px;">
@@ -203,9 +207,9 @@ let videoHTML = '';
             <br>
             <p><strong>Personalidad:</strong> ${puppy.personality}</p>
             <p><strong>Historia:</strong> ${puppy.history}</p>
-            <button class="btn-primary adopt-btn" onclick="addToAdoption(${puppy.id})">${randomText}</button>
-        </div>
-        ${videoHTML} `;
+            ${actionButtonHTML} </div>
+        ${videoHTML} 
+    `;
     showSection('detail-section');
 }
 
