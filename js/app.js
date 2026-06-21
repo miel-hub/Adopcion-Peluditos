@@ -264,8 +264,29 @@ function removeFromAdoption(index) {
     renderAdoptionList();
 }
 
-// Iniciar la página cargando el catálogo
-renderCatalog();
+// Función para mostrar todos los cachorros en la página de catálogo
+function renderCatalog() {
+    const grid = document.getElementById('puppies-grid');
+    grid.innerHTML = '';
+    
+    puppies.forEach(puppy => {
+        const card = document.createElement('div');
+        card.className = 'puppy-card';
+        
+        // Magia condicional: Si está adoptado, creamos una etiqueta especial
+        let badgeHTML = puppy.adopted ? `<div class="adopted-badge">¡Adoptado! 🏠</div>` : '';
+        let imgFilter = puppy.adopted ? `style="filter: grayscale(40%); opacity: 0.9;"` : '';
+
+        card.innerHTML = `
+            <img src="${puppy.image}" alt="${puppy.name}" ${imgFilter}>
+            <h3>${puppy.name}</h3>
+            ${badgeHTML}
+            <p>${puppy.sex} | ${puppy.color}</p>
+            <button class="btn-primary" onclick="viewDetails(${puppy.id})">Más detalles</button>
+        `;
+        grid.appendChild(card);
+    });
+}
 
 // --- CONFIGURACIÓN DE EMAILJS ---
 emailjs.init('6Snb8J5EAX92Ce8lh');
