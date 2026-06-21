@@ -41,6 +41,7 @@ const puppies = [
     {
         id: 3,
         name: "3ER PEQUEÑO",
+        adopted: true,
         sex: "Macho",
         dob: "15 de Mayo, 2026",
         color: "Predominantemente oscuro con marcas color fuego en las patas y el rostro.",
