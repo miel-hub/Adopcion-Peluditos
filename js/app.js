@@ -291,7 +291,8 @@ function renderCatalog() {
         grid.appendChild(card);
     });
 }
-
+renderCatalog();
+renderAdoptionList();
 // --- CONFIGURACIÓN DE EMAILJS ---
 emailjs.init('6Snb8J5EAX92Ce8lh');
 
