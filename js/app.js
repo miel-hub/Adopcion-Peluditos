@@ -103,7 +103,7 @@ const puppies = [
 
 let adoptionList = []; // Nuestro "carrito" de adopción
 
-// Función para cambiar entre pantallas (Home, Catálogo, Detalles, Formulario)
+// Función para cambiar entre pantallas
 function showSection(sectionId) {
     document.querySelectorAll('section').forEach(sec => {
         sec.classList.remove('active-section');
@@ -114,7 +114,7 @@ function showSection(sectionId) {
     window.scrollTo(0, 0);
 }
 
-// Función para mostrar todos los cachorros en la página de catálogo
+// Función para mostrar todos los cachorros en el catálogo
 function renderCatalog() {
     const grid = document.getElementById('puppies-grid');
     grid.innerHTML = '';
@@ -122,9 +122,15 @@ function renderCatalog() {
     puppies.forEach(puppy => {
         const card = document.createElement('div');
         card.className = 'puppy-card';
+        
+        // Magia condicional: Si está adoptado, creamos una etiqueta especial
+        let badgeHTML = puppy.adopted ? `<div class="adopted-badge">¡Adoptado! 🏠</div>` : '';
+        let imgFilter = puppy.adopted ? `style="filter: grayscale(40%); opacity: 0.9;"` : '';
+
         card.innerHTML = `
-            <img src="${puppy.image}" alt="${puppy.name}">
+            <img src="${puppy.image}" alt="${puppy.name}" ${imgFilter}>
             <h3>${puppy.name}</h3>
+            ${badgeHTML}
             <p>${puppy.sex} | ${puppy.color}</p>
             <button class="btn-primary" onclick="viewDetails(${puppy.id})">Más detalles</button>
         `;
@@ -136,12 +142,11 @@ function renderCatalog() {
 function changeMainImage(newSrc) {
     const mainImg = document.getElementById('main-puppy-img');
     mainImg.src = newSrc;
-    // Volver la imagen a su posición original al cambiar de foto
     mainImg.style.transform = 'rotate(0deg)';
     mainImg.setAttribute('data-angle', '0');
 }
 
-// Nueva función mágica para girar la imagen
+// Función mágica para girar la imagen
 function rotateImage() {
     const img = document.getElementById('main-puppy-img');
     let currentAngle = parseInt(img.getAttribute('data-angle')) || 0;
@@ -160,7 +165,7 @@ function viewDetails(id) {
     const buttonTexts = ["¡Quiero adoptarlo!", "Llevar a mi familia", "Iniciar adopción", "¡Me enamoré de este cachorro!"];
     const randomText = buttonTexts[Math.floor(Math.random() * buttonTexts.length)];
 
-    // Generar el código HTML para las miniaturas de la galería si existen
+    // Galería
     let galleryHTML = '';
     if (puppy.gallery && puppy.gallery.length > 0) {
         galleryHTML = '<div class="gallery-thumbnails">';
@@ -170,7 +175,7 @@ function viewDetails(id) {
         galleryHTML += '</div>';
     }
 
-    // Generar el código HTML para el video de YouTube
+    // Video de YouTube
     let videoHTML = '';
     if (puppy.video) {
         videoHTML = `
@@ -207,7 +212,8 @@ function viewDetails(id) {
             <br>
             <p><strong>Personalidad:</strong> ${puppy.personality}</p>
             <p><strong>Historia:</strong> ${puppy.history}</p>
-            ${actionButtonHTML} </div>
+            ${actionButtonHTML}
+        </div>
         ${videoHTML} 
     `;
     showSection('detail-section');
@@ -227,14 +233,12 @@ function addToAdoption(id) {
 }
 
 // Función para mostrar la lista en el "carrito"
-// Función para mostrar la lista en el "carrito"
 function renderAdoptionList() {
     const cartContainer = document.getElementById('cart-items');
     const formContainer = document.getElementById('adoption-form-container');
     cartContainer.innerHTML = '';
 
     if (adoptionList.length === 0) {
-        // Mensaje elegante cuando no hay peluditos seleccionados
         cartContainer.innerHTML = `
             <div style="background-color: #FAF5F0; border-radius: 25px; padding: 50px 20px; text-align: center; margin: 40px auto; max-width: 600px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); border: 2px solid rgba(255, 255, 255, 0.9);">
                 <h3 style="color: #3E2723; font-size: 1.8rem; font-family: 'Poppins', sans-serif; margin-bottom: 10px;">🐾 ¡Tu lista está vacía!</h3>
@@ -268,31 +272,10 @@ function removeFromAdoption(index) {
     renderAdoptionList();
 }
 
-// Función para mostrar todos los cachorros en la página de catálogo
-function renderCatalog() {
-    const grid = document.getElementById('puppies-grid');
-    grid.innerHTML = '';
-    
-    puppies.forEach(puppy => {
-        const card = document.createElement('div');
-        card.className = 'puppy-card';
-        
-        // Magia condicional: Si está adoptado, creamos una etiqueta especial
-        let badgeHTML = puppy.adopted ? `<div class="adopted-badge">¡Adoptado! 🏠</div>` : '';
-        let imgFilter = puppy.adopted ? `style="filter: grayscale(40%); opacity: 0.9;"` : '';
-
-        card.innerHTML = `
-            <img src="${puppy.image}" alt="${puppy.name}" ${imgFilter}>
-            <h3>${puppy.name}</h3>
-            ${badgeHTML}
-            <p>${puppy.sex} | ${puppy.color}</p>
-            <button class="btn-primary" onclick="viewDetails(${puppy.id})">Más detalles</button>
-        `;
-        grid.appendChild(card);
-    });
-}
+// --- ARRANQUE DE LA PÁGINA ---
 renderCatalog();
 renderAdoptionList();
+
 // --- CONFIGURACIÓN DE EMAILJS ---
 emailjs.init('6Snb8J5EAX92Ce8lh');
 
