@@ -83,6 +83,7 @@ const puppies = [
     {
         id: 5,
         name: " 5TA PEQUEÑA",
+        adopted: true,
         sex: "Hembra",
         dob: "15 de Mayo, 2026",
         color: "Blanco con simpáticas manchas marrones claras en las orejas y carita.",
